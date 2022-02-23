@@ -67,19 +67,33 @@ function calculaIdade(anos){
 
 
 function palindromo(palavra){
-    // if(palavra === palavra.split("").reverse("").join("")){
-    //     return "É palindromo"
-    // }else {
-    //     return "Não é palindromo"
-    // }
-
-    var resultado = palavra.localeCompare(palavra)
-    if(resultado === 0){
+    if(!palavra) return;
+    if(palavra === palavra.split("").reverse("").join("")){
         return "É palindromo"
     }else {
         return "Não é palindromo"
     }
+
+    // var resultado = palavra.localeCompare(palavra)
+    // if(resultado === 0){
+    //     return "É palindromo"
+    // }else {
+    //     return "Não é palindromo"
+    // }
 }
 
 
-console.log( palindromo("pipoca") )
+function verificaPalindromo(texto){
+    if(!texto) return "texto inexistente"
+
+    for(let i = 0; i < texto.length / 2; i++){
+        if(texto[i] !== texto[texto.length -1 - i]){
+            return false
+        }
+    }
+    return true
+}
+
+// console.log( palindromo("22022022") )
+
+console.log( verificaPalindromo("22022022") )
